@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="790.0" prefWidth="987.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="su.logix.patreg.card.Controllers.CardController">
+    <children>
+        <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Файл">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#save" text="Сохранить" />
+                        <MenuItem mnemonicParsing="false" onAction="#close" text="Закрыть" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Правка">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Копировать" />
+                        <MenuItem mnemonicParsing="false" text="Вырезать" />
+                        <MenuItem mnemonicParsing="false" text="Вставить" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Справка">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="О программе" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <TextField fx:id="tfName" layoutX="114.0" layoutY="46.0" AnchorPane.leftAnchor="114.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="50.0" />
+        <Label layoutX="17.0" layoutY="54.0" text="ФИО" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="54.0" />
+        <Label layoutX="20.0" layoutY="94.0" text="Телефон" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="94.0" />
+        <TextField fx:id="tfPhone" layoutX="114.0" layoutY="98.0" AnchorPane.leftAnchor="114.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="90.0" />
+        <Label layoutX="17.0" layoutY="134.0" text="Адрес" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="134.0" />
+        <TextField fx:id="tfAddress" layoutX="114.0" layoutY="155.0" AnchorPane.leftAnchor="114.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="130.0" />
+        <TableView fx:id="tvVisits" layoutY="293.0" onMouseClicked="#visitMouseClicked" prefHeight="245.0" prefWidth="947.0" AnchorPane.bottomAnchor="252.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="290.0">
+            <columns>
+                <TableColumn fx:id="colVisitId" prefWidth="41.0" text="№" />
+                <TableColumn fx:id="colVisitDate" prefWidth="141.0" text="Дата" />
+                <TableColumn fx:id="colVisitDiagnosis" prefWidth="259.0" text="Диагноз" />
+                <TableColumn fx:id="colVisitTreatment" prefWidth="202.0" text="Лечение" />
+                <TableColumn fx:id="colVisitNote" prefWidth="300.0" text="Примечание" />
+            </columns>
+        </TableView>
+        <Label layoutX="20.0" layoutY="323.0" text="Таблица посещений" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="260.0" />
+        <Label layoutX="23.0" layoutY="560.0" text="Снимки" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="560.0" />
+        <TableView fx:id="tvXray" layoutX="20.0" layoutY="589.0" onMouseClicked="#xrayMouseClicked" prefHeight="157.0" prefWidth="940.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="589.0">
+            <columns>
+                <TableColumn fx:id="colXrayId" prefWidth="39.0" text="№" />
+                <TableColumn fx:id="colXrayDate" prefWidth="337.0" text="Дата" />
+                <TableColumn fx:id="colXrayNote" prefWidth="567.0" text="Примечание" />
+            </columns>
+        </TableView>
+        <Button layoutX="897.0" layoutY="258.0" mnemonicParsing="false" onAction="#addVisit" prefHeight="30.0" prefWidth="30.0" text="+" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="257.0" />
+        <Button layoutX="937.0" layoutY="258.0" mnemonicParsing="false" onAction="#removeVisit" prefHeight="30.0" prefWidth="30.0" text="-" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="257.0" />
+        <Label layoutX="19.0" layoutY="174.0" text="Формула" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="174.0" />
+        <TextField fx:id="tfFormula" layoutX="114.0" layoutY="176.0" AnchorPane.leftAnchor="114.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="170.0" />
+        <Label layoutX="24.0" layoutY="214.0" text="Прикус" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="214.0" />
+        <TextField fx:id="tfBite" layoutX="114.0" layoutY="224.0" AnchorPane.leftAnchor="114.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="210.0" />
+        <Button layoutX="867.0" layoutY="565.0" mnemonicParsing="false" onAction="#addXray" prefHeight="30.0" prefWidth="30.0" text="+" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="556.0">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+        <Button layoutX="930.0" layoutY="556.0" mnemonicParsing="false" onAction="#removeXray" prefHeight="30.0" prefWidth="30.0" text="-" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="556.0" />
+        <Label fx:id="lblMessage" layoutX="23.0" layoutY="759.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" />
+        <Button layoutX="868.0" layoutY="556.0" mnemonicParsing="false" onAction="#xrayEditClicked" prefHeight="30.0" prefWidth="30.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="556.0">
+         <graphic>
+            <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@edit.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+        <Button layoutX="837.0" layoutY="556.0" mnemonicParsing="false" onAction="#xrayLookClicked" prefHeight="30.0" prefWidth="30.0" AnchorPane.rightAnchor="140.0" AnchorPane.topAnchor="556.0">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@look.png" />
+               </image>
+            </ImageView>
+         </graphic>
+        </Button>
+      <Button layoutX="856.0" layoutY="258.0" mnemonicParsing="false" onAction="#visitEditClicked" prefHeight="30.0" prefWidth="30.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="257.0">
+         <graphic>
+            <ImageView fitHeight="15.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@edit.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+    </children>
+</AnchorPane>

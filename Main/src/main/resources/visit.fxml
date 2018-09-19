@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="470.0" prefWidth="708.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="su.logix.patreg.card.Controllers.VisitController">
+    <children>
+        <Label layoutX="21.0" layoutY="54.0" text="Дата" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="34.0" />
+        <Label layoutX="23.0" layoutY="90.0" text="Диагноз" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="70.0" />
+        <Label layoutX="22.0" layoutY="211.0" text="Лечение" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="191.0" />
+        <Label layoutX="20.0" layoutY="336.0" text="Примечание" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="316.0" />
+      <Button layoutX="619.0" layoutY="471.0" mnemonicParsing="false" onAction="#save" text="Сохранить" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="20.0" />
+      <DatePicker fx:id="dpDate" layoutX="96.0" layoutY="46.0" AnchorPane.leftAnchor="114.0" AnchorPane.topAnchor="30.0" />
+      <TextArea fx:id="taDiagnosis" layoutX="116.0" layoutY="94.0" prefHeight="100.0" prefWidth="574.0" AnchorPane.bottomAnchor="322.0" AnchorPane.leftAnchor="114.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="70.0" />
+      <TextArea fx:id="taTreatment" layoutX="114.0" layoutY="211.0" prefHeight="100.0" prefWidth="574.0" AnchorPane.bottomAnchor="201.0" AnchorPane.leftAnchor="114.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="191.0" />
+      <TextArea fx:id="taNote" layoutX="114.0" layoutY="336.0" prefHeight="100.0" prefWidth="574.0" AnchorPane.bottomAnchor="76.0" AnchorPane.leftAnchor="114.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="316.0" />
+      <Label fx:id="lblMessage" layoutX="114.0" layoutY="475.0" />
+    </children>
+</AnchorPane>
