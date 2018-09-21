@@ -223,7 +223,7 @@ public class CardController {
     @FXML
     public void xrayMouseClicked(MouseEvent mouseEvent) {
         if (mouseEvent.getButton().equals(MouseButton.PRIMARY) && mouseEvent.getClickCount() == 2) {
-            xrayEdit();
+            xrayLook();
         }
     }
 
@@ -277,11 +277,26 @@ public class CardController {
         }
     }
 
+    private void xrayLook() {
+        if (tvXray.getSelectionModel().getSelectedItem() != null) {
+            try {
+                XrayLookController.setPath(tvXray.getSelectionModel().getSelectedItem().getPath());
+                Parent root = FXMLLoader.load(getClass().getResource("/xrayLook.fxml"));
+                Stage stage = new Stage();
+                stage.setTitle("Просмотр снимка");
+                stage.setScene(new Scene(root));
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public void xrayEditClicked() {
         xrayEdit();
     }
 
     public void xrayLookClicked() {
-
+        xrayLook();
     }
 }
