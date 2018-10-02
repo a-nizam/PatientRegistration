@@ -13,8 +13,10 @@ public class XrayLookController {
 
     private static String path;
     private final int STEP = 50;
+
     @FXML
     public ImageView ivXray;
+
     private Rectangle2D viewport;
     private double ratio;
     private double startDragX;
