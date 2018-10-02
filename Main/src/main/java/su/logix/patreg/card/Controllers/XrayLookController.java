@@ -19,8 +19,8 @@ public class XrayLookController {
 
     private Rectangle2D viewport;
     private double ratio;
-    private double startDragX;
-    private double startDragY;
+    private double posX;
+    private double posY;
     private boolean isImageNotMoved = true;
     private Image image;
 
@@ -44,8 +44,10 @@ public class XrayLookController {
 
     @FXML
     public void enlarge() {
-        viewport = new Rectangle2D(0, 0, viewport.getWidth() - STEP >= image.getWidth() ? viewport.getWidth() - STEP : image.getWidth(),
-                viewport.getHeight() - STEP * ratio >= image.getHeight() ? viewport.getHeight() - STEP * ratio : image.getHeight());
+        System.out.println(viewport.getWidth() - STEP);
+        System.out.println(viewport.getHeight() - STEP * ratio);
+        viewport = new Rectangle2D(0, 0, viewport.getWidth() - STEP,
+                viewport.getHeight() - STEP * ratio);
         ivXray.setViewport(viewport);
     }
 
@@ -58,15 +60,17 @@ public class XrayLookController {
     @FXML
     public void mousePressed(MouseEvent mouseEvent) {
         if (isImageNotMoved) {
-            startDragX = mouseEvent.getSceneX();
-            startDragY = mouseEvent.getSceneY();
+            posX = mouseEvent.getSceneX();
+            posY = mouseEvent.getSceneY();
             isImageNotMoved = false;
         }
     }
 
     @FXML
     public void mouseDragged(MouseEvent mouseEvent) {
-        ivXray.setTranslateX(mouseEvent.getSceneX() - startDragX);
-        ivXray.setTranslateY(mouseEvent.getSceneY() - startDragY);
+        viewport = new Rectangle2D((ivXray.getFitWidth() - mouseEvent.getSceneX() - posX) / (ivXray.getFitWidth() / viewport.getWidth()),
+                (ivXray.getFitHeight() - mouseEvent.getSceneY() - posY) / (ivXray.getFitHeight() / viewport.getHeight()),
+                viewport.getWidth(), viewport.getHeight());
+        ivXray.setViewport(viewport);
     }
 }

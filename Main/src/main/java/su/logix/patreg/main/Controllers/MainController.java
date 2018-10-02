@@ -107,7 +107,7 @@ public class MainController {
             stage.setTitle("Добавление пациента");
             stage.setScene(new Scene(root));
             stage.show();
-            stage.setOnCloseRequest(e -> {
+            stage.setOnHiding(e -> {
                 try {
                     refreshTable();
                 } catch (SQLException e1) {
