@@ -99,7 +99,9 @@ public class XrayController {
         Path copy = Paths.get("");
         if (!tfFile.getText().equals(oldFileName)) {
             try {
-                Files.delete(Paths.get(oldFileName));
+                if (getXray() > 0 && Files.exists(Paths.get(oldFileName))) {
+                    Files.delete(Paths.get(oldFileName));
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }

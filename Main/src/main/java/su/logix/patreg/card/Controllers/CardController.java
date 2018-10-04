@@ -155,7 +155,7 @@ public class CardController {
             stage.setTitle("Добавить посещение");
             stage.setScene(new Scene(root));
             stage.show();
-            stage.setOnCloseRequest(e -> {
+            stage.setOnHiding(e -> {
                 try {
                     refreshVisitsTable();
                 } catch (SQLException e1) {
