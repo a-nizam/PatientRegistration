@@ -1,41 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="su.logix.patreg.main.Controllers.MainController">
-   <children>
-      <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <menus>
-          <Menu mnemonicParsing="false" text="Файл">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#close" text="Закрыть" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Правка">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#addPatient" text="Добавить" />
-                  <MenuItem mnemonicParsing="false" onAction="#removePatient" text="Удалить" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Справка">
-            <items>
-              <MenuItem mnemonicParsing="false" text="О программе" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-      <TableView fx:id="tableView" onMouseClicked="#onMouseClicked" prefHeight="344.0" prefWidth="551.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
-        <columns>
-          <TableColumn fx:id="columnId" prefWidth="52.0" text="№" />
-          <TableColumn fx:id="columnName" prefWidth="245.0" text="ФИО" />
-            <TableColumn fx:id="columnPhone" prefWidth="108.0" text="Телефон" />
-            <TableColumn fx:id="columnAddress" prefWidth="143.0" text="Адрес" />
-        </columns>
-      </TableView>
-   </children>
+<AnchorPane prefHeight="547.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="su.logix.patreg.main.Controllers.MainController">
+    <children>
+        <MenuBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Файл">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#close" text="Закрыть" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Правка">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#addPatient" text="Добавить" />
+                        <MenuItem mnemonicParsing="false" onAction="#removePatient" text="Удалить" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Справка">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="О программе" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <TableView fx:id="tableView" layoutY="170.0" onMouseClicked="#onMouseClicked" prefHeight="377.0" prefWidth="783.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="170.0">
+            <columns>
+                <TableColumn fx:id="columnId" prefWidth="52.0" text="№" />
+                <TableColumn fx:id="columnName" prefWidth="272.0" text="ФИО" />
+                <TableColumn fx:id="columnPhone" prefWidth="138.0" text="Телефон" />
+                <TableColumn fx:id="columnAddress" prefWidth="220.0" text="Адрес" />
+            </columns>
+        </TableView>
+        <TextField fx:id="tfName" layoutX="35.0" layoutY="59.0" prefWidth="200.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="65.0" />
+        <TextField fx:id="tfPhone" layoutX="326.0" layoutY="59.0" prefWidth="200.0" AnchorPane.leftAnchor="270.0" AnchorPane.topAnchor="65.0" />
+        <Label layoutX="20.0" layoutY="44.0" text="ФИО" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="45.0" />
+        <Label layoutX="270.0" layoutY="52.0" text="Телефон" AnchorPane.leftAnchor="270.0" AnchorPane.topAnchor="45.0" />
+        <TextField fx:id="tfAddress" layoutX="526.0" layoutY="65.0" prefWidth="200.0" AnchorPane.leftAnchor="520.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="65.0" />
+        <Label layoutX="520.0" layoutY="45.0" text="Адрес" AnchorPane.leftAnchor="520.0" AnchorPane.topAnchor="45.0" />
+        <Button layoutX="659.0" layoutY="118.0" mnemonicParsing="false" onAction="#search" text="Найти" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="118.0" />
+    </children>
 </AnchorPane>

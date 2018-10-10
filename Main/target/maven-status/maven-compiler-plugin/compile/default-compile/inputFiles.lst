@@ -1,11 +1,11 @@
-C:\Users\nyzam\Desktop\Projects\Java\PatientRegistration\Main\src\main\java\su\logix\patreg\card\Controllers\VisitController.java
-C:\Users\nyzam\Desktop\Projects\Java\PatientRegistration\Main\src\main\java\su\logix\patreg\card\Controllers\XrayLookController.java
-C:\Users\nyzam\Desktop\Projects\Java\PatientRegistration\Main\src\main\java\su\logix\patreg\main\Models\PatientModel.java
-C:\Users\nyzam\Desktop\Projects\Java\PatientRegistration\Main\src\main\java\su\logix\patreg\main\Controllers\AddPatientController.java
-C:\Users\nyzam\Desktop\Projects\Java\PatientRegistration\Main\src\main\java\su\logix\patreg\main\Main.java
-C:\Users\nyzam\Desktop\Projects\Java\PatientRegistration\Main\src\main\java\su\logix\patreg\card\Controllers\CardController.java
-C:\Users\nyzam\Desktop\Projects\Java\PatientRegistration\Main\src\main\java\su\logix\patreg\card\Controllers\XrayController.java
-C:\Users\nyzam\Desktop\Projects\Java\PatientRegistration\Main\src\main\java\su\logix\patreg\card\Models\VisitModel.java
-C:\Users\nyzam\Desktop\Projects\Java\PatientRegistration\Main\src\main\java\su\logix\patreg\connection\DBConnection.java
-C:\Users\nyzam\Desktop\Projects\Java\PatientRegistration\Main\src\main\java\su\logix\patreg\card\Models\XrayModel.java
-C:\Users\nyzam\Desktop\Projects\Java\PatientRegistration\Main\src\main\java\su\logix\patreg\main\Controllers\MainController.java
+/home/nizam/Рабочий стол/java/PatientRegistration/Main/src/main/java/su/logix/patreg/main/Controllers/AddPatientController.java
+/home/nizam/Рабочий стол/java/PatientRegistration/Main/src/main/java/su/logix/patreg/connection/DBConnection.java
+/home/nizam/Рабочий стол/java/PatientRegistration/Main/src/main/java/su/logix/patreg/main/Controllers/MainController.java
+/home/nizam/Рабочий стол/java/PatientRegistration/Main/src/main/java/su/logix/patreg/card/Controllers/XrayController.java
+/home/nizam/Рабочий стол/java/PatientRegistration/Main/src/main/java/su/logix/patreg/card/Controllers/XrayLookController.java
+/home/nizam/Рабочий стол/java/PatientRegistration/Main/src/main/java/su/logix/patreg/main/Models/PatientModel.java
+/home/nizam/Рабочий стол/java/PatientRegistration/Main/src/main/java/su/logix/patreg/card/Models/XrayModel.java
+/home/nizam/Рабочий стол/java/PatientRegistration/Main/src/main/java/su/logix/patreg/card/Controllers/CardController.java
+/home/nizam/Рабочий стол/java/PatientRegistration/Main/src/main/java/su/logix/patreg/card/Models/VisitModel.java
+/home/nizam/Рабочий стол/java/PatientRegistration/Main/src/main/java/su/logix/patreg/main/Main.java
+/home/nizam/Рабочий стол/java/PatientRegistration/Main/src/main/java/su/logix/patreg/card/Controllers/VisitController.java

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="PatientRegistration">
-  <database-model serializer="dbm" rdbms="SQLITE" format-version="4.9">
+  <database-model serializer="dbm" rdbms="SQLITE" format-version="4.8">
     <root id="1">
       <ServerVersion>3.20.1</ServerVersion>
     </root>
@@ -127,11 +127,16 @@
       <DataType>TEXT(10)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="35" parent="10" name="note">
+    <column id="35" parent="10" name="path">
       <Position>4</Position>
+      <DataType>TEXT(30)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="10" name="note">
+      <Position>5</Position>
       <DataType>TEXT(255)|0s</DataType>
     </column>
-    <key id="36" parent="10">
+    <key id="37" parent="10">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>

@@ -8,16 +8,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.sqlite.core.DB;
 import su.logix.patreg.card.Controllers.CardController;
 import su.logix.patreg.connection.DBConnection;
 import su.logix.patreg.main.Models.PatientModel;
 
 import java.io.IOException;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -32,8 +33,14 @@ public class MainController {
     public TableColumn<PatientModel, String> columnPhone;
     @FXML
     public TableColumn<PatientModel, String> columnAddress;
+    @FXML
+    public TextField tfName;
+    @FXML
+    public TextField tfPhone;
+    @FXML
+    public TextField tfAddress;
 
-    private ObservableList<PatientModel> tableList;
+    private ObservableList<PatientModel> tableList = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
@@ -54,12 +61,7 @@ public class MainController {
     }
 
     private void initTable(Statement stmt) throws SQLException {
-        tableList = FXCollections.observableArrayList();
-        try (ResultSet resultSet = stmt.executeQuery("SELECT id, name, phone, address FROM patients ORDER BY id ASC")) {
-            while (resultSet.next()) {
-                tableList.add(new PatientModel(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("phone"), resultSet.getString("address"), "", ""));
-            }
-        }
+        tableList.addAll(PatientModel.getList(stmt));
 
         columnId.setCellValueFactory(new PropertyValueFactory<>("id"));
         columnName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -132,5 +134,16 @@ public class MainController {
     public void close() {
         Stage stage = (Stage) tableView.getScene().getWindow();
         stage.close();
+    }
+
+    @FXML
+    public void search() {
+        tableList.clear();
+        DBConnection dbConnection = DBConnection.getInstance();
+        try (Statement stmt = dbConnection.getStatement()) {
+            tableList.addAll(PatientModel.getList(stmt, tfName.getText(), tfPhone.getText(), tfAddress.getText()));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
