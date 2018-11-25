@@ -109,6 +109,10 @@ public class XrayController {
             }
             Path original = Paths.get(tfFile.getText());
             copy = Paths.get("xray", Integer.toString(getPatient()), Long.toString(new Date().getTime()) + "." + getFileExtension(original));
+            Path directory = copy.getParent();
+            if (Files.notExists(directory)) {
+                new File(directory.toString()).mkdir();
+            }
             try {
                 Files.copy(original, copy);
             } catch (IOException e) {
