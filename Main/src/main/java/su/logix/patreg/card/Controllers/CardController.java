@@ -1,28 +1,32 @@
 package su.logix.patreg.card.Controllers;
 
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import org.jetbrains.annotations.Contract;
 import su.logix.patreg.card.Models.VisitModel;
 import su.logix.patreg.card.Models.XrayModel;
 import su.logix.patreg.connection.DBConnection;
 import su.logix.patreg.main.Models.PatientModel;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Optional;
 
 public class CardController {
     // patients id
@@ -66,6 +70,28 @@ public class CardController {
 
     private PatientModel patientModel;
 
+    private boolean isChanged = false;
+    private javafx.event.EventHandler<WindowEvent> closeEventHandler = event -> {
+        if (isChanged) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Предупреждение");
+            alert.setHeaderText(null);
+            alert.setContentText("Сохранить изменения?");
+            ButtonType buttonTypeYes = new ButtonType("Да");
+            ButtonType buttonTypeNo = new ButtonType("Нет");
+            ButtonType buttonTypeCancel = new ButtonType("Отмена", ButtonBar.ButtonData.CANCEL_CLOSE);
+            alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo, buttonTypeCancel);
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == buttonTypeYes) {
+                save();
+            } else if (result.get() == buttonTypeNo) {
+
+            } else {
+                event.consume();
+            }
+        }
+    };
+
     @Contract(pure = true)
     private static int getId() {
         return id;
@@ -86,6 +112,12 @@ public class CardController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        tfName.textProperty().addListener(this::filedsChanged);
+        tfPhone.textProperty().addListener(this::filedsChanged);
+        tfAddress.textProperty().addListener(this::filedsChanged);
+        tfFormula.textProperty().addListener(this::filedsChanged);
+        tfBite.textProperty().addListener(this::filedsChanged);
     }
 
     private void setGraphics() {
@@ -143,6 +175,7 @@ public class CardController {
             lblMessage.setText("Ошибка: " + e.getMessage());
             e.printStackTrace();
         }
+        isChanged = false;
     }
 
     @FXML
@@ -234,9 +267,11 @@ public class CardController {
     private void visitEdit() {
         if (tvVisits.getSelectionModel().getSelectedItem() != null) {
             try {
+                FXMLLoader loader = new FXMLLoader();
                 VisitController.setVisit(tvVisits.getSelectionModel().getSelectedItem().getId());
                 VisitController.setPatient(getId());
-                Parent root = FXMLLoader.load(getClass().getResource("/visit.fxml"));
+                loader.setLocation(getClass().getResource("/visit.fxml"));
+                Parent root = loader.load();
                 Stage stage = new Stage();
                 stage.setTitle("Редактировать посещение");
                 stage.setScene(new Scene(root));
@@ -248,6 +283,8 @@ public class CardController {
                         e1.printStackTrace();
                     }
                 });
+                VisitController visitController = loader.getController();
+                stage.setOnCloseRequest(visitController.getCloseEventHandler());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -257,9 +294,11 @@ public class CardController {
     private void xrayEdit() {
         if (tvXray.getSelectionModel().getSelectedItem() != null) {
             try {
+                FXMLLoader loader = new FXMLLoader();
                 XrayController.setXray(tvXray.getSelectionModel().getSelectedItem().getId());
                 XrayController.setPatient(getId());
-                Parent root = FXMLLoader.load(getClass().getResource("/xray.fxml"));
+                loader.setLocation(getClass().getResource("/xray.fxml"));
+                Parent root = loader.load();
                 Stage stage = new Stage();
                 stage.setTitle("Редактировать снимок");
                 stage.setScene(new Scene(root));
@@ -271,6 +310,8 @@ public class CardController {
                         e1.printStackTrace();
                     }
                 });
+                XrayController xrayController = loader.getController();
+                stage.setOnCloseRequest(xrayController.getCloseEventHandler());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -279,13 +320,10 @@ public class CardController {
 
     private void xrayLook() {
         if (tvXray.getSelectionModel().getSelectedItem() != null) {
+            File image = new File(tvXray.getSelectionModel().getSelectedItem().getPath());
+            Desktop dt = Desktop.getDesktop();
             try {
-                XrayLookController.setPath(tvXray.getSelectionModel().getSelectedItem().getPath());
-                Parent root = FXMLLoader.load(getClass().getResource("/xrayLook.fxml"));
-                Stage stage = new Stage();
-                stage.setTitle("Просмотр снимка");
-                stage.setScene(new Scene(root));
-                stage.show();
+                dt.open(image);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -298,5 +336,15 @@ public class CardController {
 
     public void xrayLookClicked() {
         xrayLook();
+    }
+
+    private void filedsChanged(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+        if (!oldValue.equals(newValue)) {
+            isChanged = true;
+        }
+    }
+
+    public javafx.event.EventHandler<WindowEvent> getCloseEventHandler() {
+        return closeEventHandler;
     }
 }

@@ -1,12 +1,11 @@
 package su.logix.patreg.card.Controllers;
 
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import su.logix.patreg.card.Models.XrayModel;
@@ -22,6 +21,7 @@ import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.Optional;
 
 public class XrayController {
     private static int xray;
@@ -39,6 +39,28 @@ public class XrayController {
 
     // for check if the file is changed
     private String oldFileName;
+
+    private boolean isChanged = false;
+    private javafx.event.EventHandler<WindowEvent> closeEventHandler = event -> {
+        if (isChanged) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Предупреждение");
+            alert.setHeaderText(null);
+            alert.setContentText("Сохранить изменения?");
+            ButtonType buttonTypeYes = new ButtonType("Да");
+            ButtonType buttonTypeNo = new ButtonType("Нет");
+            ButtonType buttonTypeCancel = new ButtonType("Отмена", ButtonBar.ButtonData.CANCEL_CLOSE);
+            alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo, buttonTypeCancel);
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == buttonTypeYes) {
+                save();
+            } else if (result.get() == buttonTypeNo) {
+
+            } else {
+                event.consume();
+            }
+        }
+    };
 
     @Contract(pure = true)
     private static int getPatient() {
@@ -75,6 +97,17 @@ public class XrayController {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+
+        if (getXray() > 0) {
+            dpDate.getEditor().textProperty().addListener((observable, oldValue, newValue) -> dpDate.setValue(dpDate.getConverter().fromString(dpDate.getEditor().getText())));
+            dpDate.valueProperty().addListener((observable, oldValue, newValue) -> {
+                if (!oldValue.equals(newValue)) {
+                    isChanged = true;
+                }
+            });
+            tfFile.textProperty().addListener(this::filedsChanged);
+            taNote.textProperty().addListener(this::filedsChanged);
         }
     }
 
@@ -118,6 +151,8 @@ public class XrayController {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        } else {
+            copy = Paths.get(oldFileName);
         }
 
         // Save to db
@@ -134,5 +169,16 @@ public class XrayController {
             lblMessage.setText("Ошибка: " + e.getMessage());
             e.printStackTrace();
         }
+        isChanged = false;
+    }
+
+    private void filedsChanged(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+        if (!oldValue.equals(newValue)) {
+            isChanged = true;
+        }
+    }
+
+    javafx.event.EventHandler<WindowEvent> getCloseEventHandler() {
+        return closeEventHandler;
     }
 }

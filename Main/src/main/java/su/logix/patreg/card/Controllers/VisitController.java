@@ -1,18 +1,17 @@
 package su.logix.patreg.card.Controllers;
 
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import org.jetbrains.annotations.Contract;
 import su.logix.patreg.card.Models.VisitModel;
-import su.logix.patreg.connection.DBConnection;
 
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 
 public class VisitController {
     private static int patient;
@@ -28,6 +27,29 @@ public class VisitController {
     public TextArea taNote;
     @FXML
     public Label lblMessage;
+
+    private boolean isChanged = false;
+
+    private javafx.event.EventHandler<WindowEvent> closeEventHandler = event -> {
+        if (isChanged) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Предупреждение");
+            alert.setHeaderText(null);
+            alert.setContentText("Сохранить изменения?");
+            ButtonType buttonTypeYes = new ButtonType("Да");
+            ButtonType buttonTypeNo = new ButtonType("Нет");
+            ButtonType buttonTypeCancel = new ButtonType("Отмена", ButtonBar.ButtonData.CANCEL_CLOSE);
+            alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo, buttonTypeCancel);
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == buttonTypeYes) {
+                save();
+            } else if (result.get() == buttonTypeNo) {
+
+            } else {
+                event.consume();
+            }
+        }
+    };
 
     @Contract(pure = true)
     private static int getPatient() {
@@ -49,13 +71,24 @@ public class VisitController {
 
     @FXML
     public void initialize() {
-        DBConnection connection = DBConnection.getInstance();
-        try (Statement stmt = connection.getStatement()) {
+        try {
             if (getVisit() > 0) {
                 initFields();
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+
+        if (getVisit() > 0) {
+            dpDate.getEditor().textProperty().addListener((observable, oldValue, newValue) -> dpDate.setValue(dpDate.getConverter().fromString(dpDate.getEditor().getText())));
+            dpDate.valueProperty().addListener((observable, oldValue, newValue) -> {
+                if (!oldValue.equals(newValue)) {
+                    isChanged = true;
+                }
+            });
+            taDiagnosis.textProperty().addListener(this::filedsChanged);
+            taTreatment.textProperty().addListener(this::filedsChanged);
+            taNote.textProperty().addListener(this::filedsChanged);
         }
     }
 
@@ -82,5 +115,16 @@ public class VisitController {
             lblMessage.setText("Ошибка: " + e.getMessage());
             e.printStackTrace();
         }
+        isChanged = false;
+    }
+
+    private void filedsChanged(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+        if (!oldValue.equals(newValue)) {
+            isChanged = true;
+        }
+    }
+
+    javafx.event.EventHandler<WindowEvent> getCloseEventHandler() {
+        return closeEventHandler;
     }
 }

@@ -83,18 +83,23 @@ public class MainController {
                 int cardId = tableView.getSelectionModel().getSelectedItem().getId();
                 CardController.setId(cardId);
                 try {
-                    Parent root = FXMLLoader.load(getClass().getResource("/card.fxml"));
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/card.fxml"));
+                    Parent root = loader.load();
                     Stage stage = new Stage();
                     stage.setTitle("Карточка пациента №" + cardId);
                     stage.setScene(new Scene(root));
                     stage.show();
-                    stage.setOnCloseRequest(e -> {
+                    stage.setOnHiding(e -> {
                         try {
                             refreshTable();
                         } catch (SQLException el) {
                             el.printStackTrace();
                         }
                     });
+
+                    CardController cardController = loader.getController();
+                    stage.setOnCloseRequest(cardController.getCloseEventHandler());
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

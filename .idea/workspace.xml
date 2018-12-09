@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55c03e6b-7caa-4037-ac65-bdb387f40c7b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/CardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/CardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/VisitController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/VisitController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/XrayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/XrayController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/XrayLookController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/main/Controllers/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/main/Controllers/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/main/resources/card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/Main/src/main/resources/card.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/src/main/resources/xrayLook.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/classes/xrayLook.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/Main/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/patients.db" beforeDir="false" afterPath="$PROJECT_DIR$/patients.db" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/Main/target/" />
@@ -31,7 +40,7 @@
     <session id="616085497">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.35" value="1" />
@@ -39,14 +48,15 @@
           <entry key="project.open.time.38" value="3" />
           <entry key="project.open.time.42" value="1" />
           <entry key="project.open.time.44" value="1" />
+          <entry key="project.open.time.48" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="10" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="fxml" value="22" />
-          <entry key="java" value="84" />
+          <entry key="fxml" value="26" />
+          <entry key="java" value="97" />
           <entry key="png" value="6" />
           <entry key="sql" value="1" />
           <entry key="xml" value="5" />
@@ -55,15 +65,16 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="6" />
-          <entry key="JAVA" value="84" />
+          <entry key="JAVA" value="97" />
           <entry key="SQL" value="1" />
-          <entry key="XML" value="27" />
+          <entry key="XML" value="31" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="dummy" value="9" />
           <entry key="fxml" value="162" />
-          <entry key="java" value="5631" />
+          <entry key="java" value="7408" />
           <entry key="xml" value="84" />
         </counts>
       </usages-collector>
@@ -72,7 +83,8 @@
       <usages-collector id="statistics.js.language.service.starts" />
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5631" />
+          <entry key="JAVA" value="7408" />
+          <entry key="PLAIN_TEXT" value="9" />
           <entry key="XML" value="246" />
         </counts>
       </usages-collector>
@@ -82,11 +94,15 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main/src/main/resources/main.fxml">
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="51" selection-start-line="51" selection-end-line="51" />
+        <entry file="file://$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/CardController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="471">
+              <caret line="175" column="32" lean-forward="true" selection-start-line="175" selection-start-column="32" selection-end-line="175" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#10827#10828#0" expanded="true" />
+                <element signature="e#10867#10868#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,8 +110,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/main/Controllers/MainController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2312">
-              <caret line="149" selection-start-line="149" selection-end-line="149" />
+            <state relative-caret-position="369">
+              <caret line="102" column="41" lean-forward="true" selection-start-line="102" selection-start-column="41" selection-end-line="102" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -104,21 +120,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/main/Models/PatientModel.java">
+        <entry file="file://$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/XrayController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="111" column="5" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
+            <state relative-caret-position="457">
+              <caret line="171" column="26" selection-start-line="171" selection-start-column="26" selection-end-line="171" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/XrayController.java">
+        <entry file="file://$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/VisitController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="118" column="36" lean-forward="true" selection-start-line="118" selection-start-column="36" selection-end-line="118" selection-end-column="36" />
+            <state relative-caret-position="1440">
+              <caret line="98" column="55" lean-forward="true" selection-start-line="98" selection-start-column="55" selection-end-line="98" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1728#1729#0" expanded="true" />
+                <element signature="e#1758#1759#0" expanded="true" />
+                <element signature="e#1801#1802#0" expanded="true" />
+                <element signature="e#1850#1851#0" expanded="true" />
+                <element signature="e#1914#1915#0" expanded="true" />
+                <element signature="e#1942#1943#0" expanded="true" />
+                <element signature="e#1981#1982#0" expanded="true" />
+                <element signature="e#2026#2027#0" expanded="true" />
+                <element signature="e#4133#4134#0" expanded="true" />
+                <element signature="e#4173#4174#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -167,17 +196,20 @@
         <option value="$PROJECT_DIR$/Main/src/main/resources/addXray.fxml" />
         <option value="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/AddXrayController.java" />
         <option value="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Models/VisitModel.java" />
-        <option value="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/VisitController.java" />
         <option value="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Models/XrayModel.java" />
-        <option value="$PROJECT_DIR$/Main/src/main/resources/card.fxml" />
         <option value="$PROJECT_DIR$/Main/src/main/resources/xrayLook.fxml" />
         <option value="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/XrayLookController.java" />
         <option value="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/main/Controllers/AddPatientController.java" />
-        <option value="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/CardController.java" />
         <option value="$PROJECT_DIR$/Main/src/main/resources/main.fxml" />
-        <option value="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/main/Controllers/MainController.java" />
         <option value="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/main/Models/PatientModel.java" />
+        <option value="$PROJECT_DIR$/Main/src/main/resources/visit.fxml" />
+        <option value="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/Controller.java" />
+        <option value="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/core/CoreController.java" />
+        <option value="$PROJECT_DIR$/Main/src/main/resources/card.fxml" />
+        <option value="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/main/Controllers/MainController.java" />
+        <option value="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/CardController.java" />
         <option value="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/XrayController.java" />
+        <option value="$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/VisitController.java" />
       </list>
     </option>
   </component>
@@ -212,9 +244,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -337,6 +368,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -348,7 +380,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542137421191" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544388156053" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="jdk.selected.JAVA_MODULE" value="10" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/Main/src/main/java" />
@@ -412,16 +444,17 @@
       <workItem from="1538674960671" duration="3083000" />
       <workItem from="1539153509293" duration="3964000" />
       <workItem from="1542135048632" duration="2438000" />
+      <workItem from="1544374171022" duration="13170000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78831000" />
+    <option name="totallyTimeSpent" value="92001000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18603411" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1881663" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -508,34 +541,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/VisitController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/main/Controllers/AddPatientController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="29" column="64" selection-start-line="29" selection-start-column="64" selection-end-line="29" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/XrayLookController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="63" column="42" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/CardController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="147" column="9" selection-start-line="147" selection-start-column="9" selection-end-line="147" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -546,37 +555,114 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/XrayLookController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/main/resources/xrayLook.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="141" selection-start-line="8" selection-start-column="141" selection-end-line="8" selection-end-column="141" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/main/Models/PatientModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="127" column="5" lean-forward="true" selection-start-line="127" selection-start-column="5" selection-end-line="127" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/core/CoreController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-10.0.2/lib/src.zip!/javafx.fxml/javafx/fxml/FXMLLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="1789" selection-start-line="1789" selection-end-line="1789" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/main/resources/main.fxml">
       <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
       <provider editor-type-id="text-editor">
-        <state relative-caret-position="697">
+        <state relative-caret-position="867">
           <caret line="51" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/main/resources/visit.fxml">
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="66" lean-forward="true" selection-start-line="19" selection-start-column="66" selection-end-line="19" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/main/resources/card.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-563">
+          <caret line="28" column="76" lean-forward="true" selection-start-line="28" selection-start-column="76" selection-end-line="28" selection-end-column="76" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/main/Controllers/MainController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2312">
-          <caret line="149" selection-start-line="149" selection-end-line="149" />
+        <state relative-caret-position="369">
+          <caret line="102" column="41" lean-forward="true" selection-start-line="102" selection-start-column="41" selection-end-line="102" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/main/Models/PatientModel.java">
+    <entry file="file://$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/CardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="111" column="5" selection-start-line="111" selection-start-column="5" selection-end-line="111" selection-end-column="5" />
+        <state relative-caret-position="471">
+          <caret line="175" column="32" lean-forward="true" selection-start-line="175" selection-start-column="32" selection-end-line="175" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#10827#10828#0" expanded="true" />
+            <element signature="e#10867#10868#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/XrayController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="118" column="36" lean-forward="true" selection-start-line="118" selection-start-column="36" selection-end-line="118" selection-end-column="36" />
+        <state relative-caret-position="457">
+          <caret line="171" column="26" selection-start-line="171" selection-start-column="26" selection-end-line="171" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Main/src/main/java/su/logix/patreg/card/Controllers/VisitController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="98" column="55" lean-forward="true" selection-start-line="98" selection-start-column="55" selection-end-line="98" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1728#1729#0" expanded="true" />
+            <element signature="e#1758#1759#0" expanded="true" />
+            <element signature="e#1801#1802#0" expanded="true" />
+            <element signature="e#1850#1851#0" expanded="true" />
+            <element signature="e#1914#1915#0" expanded="true" />
+            <element signature="e#1942#1943#0" expanded="true" />
+            <element signature="e#1981#1982#0" expanded="true" />
+            <element signature="e#2026#2027#0" expanded="true" />
+            <element signature="e#4133#4134#0" expanded="true" />
+            <element signature="e#4173#4174#0" expanded="true" />
           </folding>
         </state>
       </provider>
